@@ -1,0 +1,82 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class C5_Bank{
+    private:
+    int account;
+    public:
+    C5_Bank(int a){      //constructor
+          account = a;
+          cout<<"\t\tWelcome To C5 Bank\n\n";
+          }
+          widraw()       //withdraw amount function
+           {
+           cout<<"Please Enter Amount:";
+           int a;
+           cin>>a;
+           if(a>=5000 && a<50000){
+           account= account - a;
+           cout<<"you have withdraw a amount of"<<a<<"from your account\n";
+           menu();
+           }
+           else{
+               cout<<"\t\tERROR!"<<endl;
+               cout<<"Please Enter Value Between RS.5000 To RS.50000";
+               menu();
+             }
+             
+         }
+          deposit()       //deposit amount function
+           {
+           cout<<"Please Enter Amount:";
+           int a;
+           cin>>a;
+           if(a>=500 && a<=50000){
+           account= account + a;
+           cout<<"you have deposit a amount of"<<a<<"from your account\n";
+           menu();
+           }
+           else{
+               cout<<"\t\tERROR!"<<endl;
+               cout<<"Please Enter Value Between RS.500 To RS.50000";
+               menu();
+             }
+             
+         }
+         check_bal()       //CheckBalance amount function
+           {
+           cout<<"your accpunt balance is:"<<account<<endl;
+           }
+           menu(){
+           }
+             int a;
+             cout<<"\n1.CHECK BALANCE\n2.DEPOSIT CASH\n3.WIDRAW CASH";
+             cin>>a;
+             if(a==1){
+                     check_bal();
+                     menu();
+                 }
+                 else if(a==2){
+                              deposit();
+                              check_bal();
+                              menu();
+                 }
+                 else if(a==3){
+                              widraw();
+                              check_bal();
+                              menu();
+                 }else{
+                         cout<<"INVALID ENTRY!";
+                         cout<<"SELECT VALUE FROM MENUE";
+                         menu();
+                  }
+             
+             }
+    };
+    
+    #include"c5_bank.cpp"
+    using namespace std;
+    main(){
+           c5_bank bank(5000);
+           bank.menu();
+           }
